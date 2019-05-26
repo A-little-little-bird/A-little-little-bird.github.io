@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[gitDoc]]></title>
+    <url>%2F2019%2F05%2F26%2FgitDoc%2F</url>
+    <content type="text"><![CDATA[基本概念首先，来理解一下Git下工作区、暂存区和版本库概念 工作区：就是能够在电脑里能看到的目录。 暂存区：英文名叫stage或者index。一般存放在”git目录”下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。 版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是Git的版本库。 下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系]]></content>
+      <categories>
+        <category>使用文档</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F05%2F19%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
