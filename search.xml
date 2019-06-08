@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[查找树中节点的编号]]></title>
+    <url>%2F2019%2F06%2F08%2FtreeNum%2F</url>
+    <content type="text"><![CDATA[问题描述 给定一棵树，树中各节点的默认编号按照深度优先遍历排序。现给定一节点数组，请返回这组节点所对应的编号数组。 例如： 123456&gt; 8 对应编号:1 2 3 4 5 6 7 &gt; / \ 如左图，各节点按序访问为:[8,5,2,4,7,6,9],&gt; 5 7 若给定查询数组为:[7,4],则返回值应该为:[5,4]&gt; / \ / \&gt; 2 4 6 9&gt; 解决方案 暂时以解决问题优先，之后若有新的思路再进行优化。树的深度优先遍历使用递归方式能够简明实现，但问题中需要返回命中节点的序号，因此再遍历的时候还需要加上全局的index，记录节点的访问次序。基本流程如下：1）从目标数组中取出需要查找的节点；2）遍历树开始查找节点位置（假定该节点一定存在此树中）；3）依次遍历树的节点，若节点为空直接返回；4）若节点不为空，则比对值是否相等，相等将序号加入返回数组；5）若不等，判断该节点是否有子树，无直接返回，有则递归，从 3）开始遍历子树； 具体代码 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869/**/* 使用js代码为例（实际需要）/* 递归查找函数/* z_tree为树，targetID为查找节点，index为节点编号，select为返回数组/**function findIndex(z_tree,targetID,index,select) &#123; if(z_tree)&#123; if(z_tree.ID==targetID)&#123; select.push(index.count); &#125; else if(z_tree.child)&#123; for(var i=0;i&lt;z_tree.child.length;i++)&#123; index.count++; findIndex(z_tree.child[i],targetID,index,select); &#125; &#125; &#125;&#125;;// 创建树var z_tree=&#123; ID:&apos;asd001&apos;, child:[ &#123; ID:&apos;asd002&apos;, child:[ &#123; ID:&apos;asd005&apos;, &#125;, &#123; ID:&apos;asd006&apos;, &#125; ] &#125;, &#123; ID:&apos;asd003&apos;, child:[ &#123; ID:&apos;asd007&apos;, &#125;, &#123; ID:&apos;asd008&apos;, &#125; ] &#125;, &#123; ID:&apos;asd004&apos;, child:[ &#123; ID:&apos;asd009&apos;, &#125;, &#123; ID:&apos;asd010&apos;, &#125; ] &#125; ],&#125;// 目标节点数组var targetID=[&apos;asd008&apos;,&apos;asd002&apos;];// 节点编号（使用对象构建引用类型）var index=&#123;count:1&#125;;// 返回数组var select=[];// 开始遍历for(var i=0;i&lt;targetID.length;i++)&#123; index.count=1; // 每次遍历前初始化序号 findIndex(z_tree,targetID[i],index,select);&#125;console.log(select)]]></content>
+      <categories>
+        <category>实际问题</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git文档]]></title>
     <url>%2F2019%2F05%2F26%2FgitDoc%2F</url>
     <content type="text"><![CDATA[基本概念首先，来理解一下Git下工作区、暂存区和版本库概念 工作区：就是能够在电脑里能看到的目录。 暂存区：英文名叫stage或者index。一般存放在”git目录”下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。 版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是Git的版本库。 下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系]]></content>
