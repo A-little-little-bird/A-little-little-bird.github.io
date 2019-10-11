@@ -104,10 +104,12 @@
 <meta property="og:site_name" content="A little little bird">
 <meta property="og:description" content="问题描述 某公司希望在高速公路上设立一些餐厅。现有n 个位置可选，距高速公路的起点分别为m1,m2 … mn(m1 &amp;lt; m2 &amp;lt; … &amp;lt; mn)。对每个位置mi，该公司如果在这个位置设立餐厅的话，期望盈利为pi(pi &amp;gt; 0)。此外，公司设立的任意两个餐厅间的距离应大于等于k(k &amp;gt; 0)，但设立的餐厅个数没有限制。请设计一个动态规划的方法来帮助该公司选址，使得期望盈">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-11T14:37:49.153Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/11/餐厅选址问题/餐厅选址问题/转移方程.png">
+<meta property="og:updated_time" content="2019-10-11T14:50:42.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="餐厅选址问题">
 <meta name="twitter:description" content="问题描述 某公司希望在高速公路上设立一些餐厅。现有n 个位置可选，距高速公路的起点分别为m1,m2 … mn(m1 &amp;lt; m2 &amp;lt; … &amp;lt; mn)。对每个位置mi，该公司如果在这个位置设立餐厅的话，期望盈利为pi(pi &amp;gt; 0)。此外，公司设立的任意两个餐厅间的距离应大于等于k(k &amp;gt; 0)，但设立的餐厅个数没有限制。请设计一个动态规划的方法来帮助该公司选址，使得期望盈">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/11/餐厅选址问题/餐厅选址问题/转移方程.png">
 
 
 
@@ -398,7 +400,7 @@
                 
               
 
-              <time title="创建时间：2019-10-11 21:04:00 / 修改时间：22:37:49" itemprop="dateCreated datePublished" datetime="2019-10-11T21:04:00+08:00">2019-10-11</time>
+              <time title="创建时间：2019-10-11 21:04:00 / 修改时间：22:50:42" itemprop="dateCreated datePublished" datetime="2019-10-11T21:04:00+08:00">2019-10-11</time>
             
 
             
@@ -461,7 +463,7 @@
 <h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><blockquote>
 <p>使用动态规划求解最重要的是先列出问题的状态转移方程，不过在列出状态转移方程之前我们需要先约定好每阶段状态的表示方式。这道题状态的转移可以简单的看作一维状态变化（原谅没法合理的阐述与解释这里），因此可以将在第i处的状态写作P[i], 其表示从1号位置到i号位置的最大盈利数。</p>
 <p>接下来开始分析状态转移方程，P[i] $\Rightarrow$ P[i+1]。首先分析简单的情况，若是i号位置与i+1号位置的距离大于k，那么P[i+1]可以简单的表示为P[i]+p<sub>i+1</sub>，但是若是两者距离小于k，那么以上公式将不再成立，但是思路也很清晰。i与i+1距离不够，那么就寻找i之前的点，找到与i+1距离大于k的点就行了，这里不防记作位置c。同样的可以得到P[c]+p<sub>i+1</sub>，但是注意这个结果未必是到i+1号位置的最大盈利，还需要与P[i]进行比较取较大值作为P[i+1]的值。因此：</p>
-<p>P[i+1] = $\begin{cases}P[i]+p_{i+1},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \  \ m_{i+1}-m_i&gt;k \ max(P[i], P[c]+p_{i+1}),\ \ \ m_{i+1}-m_c&gt;k \end{cases}$</p>
+<p><img src="./餐厅选址问题/转移方程.png" alt="转移方程"></p>
 </blockquote>
 <h4 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
