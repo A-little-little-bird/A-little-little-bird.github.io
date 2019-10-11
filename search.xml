@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[知识图谱的数据融合]]></title>
+    <url>%2F2019%2F10%2F11%2F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E8%9E%8D%E5%90%88%2F</url>
+    <content type="text"><![CDATA[数据融合的目标 数据融合的目标是找出属于现实世界中的同一实体。 数据融合的挑战 来源于不同数据源的数据之间是异构的，异构数据之间可能在本体层面上有所不同；而且在实体层上也可能会有差异，表达同一实体的标志会有不同的方式； 不同数据源之间可能存在冲突数据，由于一些不完整、错误、过时问题导致的数据冲突可能会对信息的获取产生误导，所以需要在数据融合中识别出正确的数据，以解决数据冲突。 数据融合的处理流程 确定属性体系； 使用已建立的属性体系分别对每个数据源的属性进行规范化表示，包括同义属性映射和数值单位统一； 基于实体名和实体属性对实体进行分块聚合； 将同一分块内不同来源的实体作为候选实体对，采用实体对齐算法计算实体间的相似度，将匹配得到不同来源中描述同一客观世界的实体对，建立不同数据源之间同一实体的等价链接，并进行实体属性的合并，而对于一个数据源中独有的实体，可以直接添加到知识库中。]]></content>
+      <categories>
+        <category>学习文档</category>
+      </categories>
+      <tags>
+        <tag>知识图谱</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[知识图谱的补全与更新]]></title>
     <url>%2F2019%2F10%2F11%2F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E7%9A%84%E8%A1%A5%E5%85%A8%E4%B8%8E%E6%9B%B4%E6%96%B0%2F</url>
     <content type="text"><![CDATA[关于知识图谱的补全与更新，主要根据两个方向去学习相关策略： NELL(Never-Ending Language Learner)系统 浙江大学陈华钧教授的研究 Q: What is the Meaning of Never-Ending Language Learner?A: A computer system that runs 24 hours per day, 7 days per week, forever, performing two tasks each day: Reading task: extracting information from web text to further populate a growing knowledge base of structured facts and knowledge. Learning Task: learning to read better than the day before, as evidenced by its ability to go back to yesterday’s text sources and extract more information, more accurately. Q: What the input of NELL look like?A: The input to NELL is an initial ontology O, with four types of pre-specified information for each class: some noun phrases that are trusted instances of that class. a few trusted contextual patterns that sre known to yield high-precision in extraction. a list of other classes in the ontology with which that class is mutually exclusive. a list of other classes of which that is a subset.]]></content>
