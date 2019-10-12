@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/10/12/最长递增子序列问题/转移方程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/12/最长递增子序列问题/算法流程.png">
-<meta property="og:updated_time" content="2019-10-12T11:04:34.133Z">
+<meta property="og:updated_time" content="2019-10-12T11:10:10.727Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最长递增子序列问题">
 <meta name="twitter:description" content="问题描述 请设计一个O(n2) 的动态规划算法来求出一个包含n 个元素的序列中的最长递增子序列。所谓递增子序列是指，从原序列中按顺序挑选出某些元素组成一个新序列，并且该新序列中的任意一个元素均大于该元素之前的所有元素。例如，输入的序列为&amp;lt; 5, 24, 8, 17, 12, 45 &amp;gt;，那么该序列的最长递增子序列为&amp;lt; 5, 8, 12, 45 &amp;gt; 或&amp;lt; 5, 8, 17">
@@ -401,7 +401,7 @@
                 
               
 
-              <time title="创建时间：2019-10-12 16:40:00 / 修改时间：19:04:34" itemprop="dateCreated datePublished" datetime="2019-10-12T16:40:00+08:00">2019-10-12</time>
+              <time title="创建时间：2019-10-12 16:40:00 / 修改时间：19:10:10" itemprop="dateCreated datePublished" datetime="2019-10-12T16:40:00+08:00">2019-10-12</time>
             
 
             
@@ -462,7 +462,7 @@
 <p>请设计一个O(n<sup>2</sup>) 的动态规划算法来求出一个包含n 个元素的序列中的最长递增子序列。所谓递增子序列是指，从原序列中按顺序挑选出某些元素组成一个新序列，并且该新序列中的任意一个元素均大于该元素之前的所有元素。例如，输入的序列为&lt; 5, 24, 8, 17, 12, 45 &gt;，那么该序列的最长递增子序列为&lt; 5, 8, 12, 45 &gt; 或&lt; 5, 8, 17, 45 &gt;。请分析你的算法的正确性并验证其时间复杂度。</p>
 </blockquote>
 <h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><blockquote>
-<p>此题可以使用动态规划的方式求解，先写出状态表示为L[i], 其含义为以i号位置为终点的最长递增子序列长度（描述是下标默认从1开始，注意与实际代码的区别）。为了接下来方便问题的描述，我们将输入序列标记为N[i] (i默认从1号位置开始)</p>
+<p>此题可以使用动态规划的方式求解，先写出状态表示为L[i], 其含义为以i号位置为终点的最长递增子序列长度（下标默认从1开始，注意与实际代码的区别）。为了方便问题的描述，我们将输入序列标记为N[i]。</p>
 <p>接下来开始探究此题的状态转移方程。若i为1，则L[i]=1这点无需置疑，重点在于i大于1的情况。我们依次分析，先从简单的情况开始，若是i为2，我们需要具体分析：</p>
 <ol>
 <li><p>若是N[2] &gt; N[1]，则L[2] = L[1]+1；</p>
