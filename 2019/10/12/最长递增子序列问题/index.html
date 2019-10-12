@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/10/12/最长递增子序列问题/转移方程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/12/最长递增子序列问题/算法流程.png">
-<meta property="og:updated_time" content="2019-10-12T11:10:10.727Z">
+<meta property="og:updated_time" content="2019-10-12T11:49:40.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最长递增子序列问题">
 <meta name="twitter:description" content="问题描述 请设计一个O(n2) 的动态规划算法来求出一个包含n 个元素的序列中的最长递增子序列。所谓递增子序列是指，从原序列中按顺序挑选出某些元素组成一个新序列，并且该新序列中的任意一个元素均大于该元素之前的所有元素。例如，输入的序列为&amp;lt; 5, 24, 8, 17, 12, 45 &amp;gt;，那么该序列的最长递增子序列为&amp;lt; 5, 8, 12, 45 &amp;gt; 或&amp;lt; 5, 8, 17">
@@ -401,7 +401,7 @@
                 
               
 
-              <time title="创建时间：2019-10-12 16:40:00 / 修改时间：19:10:10" itemprop="dateCreated datePublished" datetime="2019-10-12T16:40:00+08:00">2019-10-12</time>
+              <time title="创建时间：2019-10-12 16:40:00 / 修改时间：19:49:40" itemprop="dateCreated datePublished" datetime="2019-10-12T16:40:00+08:00">2019-10-12</time>
             
 
             
@@ -475,6 +475,8 @@
 <h4 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h4><blockquote>
 <p><img src="./算法流程.png" alt="算法流程"></p>
 </blockquote>
+<h4 id="算法实现-JAVA"><a href="#算法实现-JAVA" class="headerlink" title="算法实现-JAVA"></a>算法实现-JAVA</h4><p>此处实现只是简单的依照上述流程所写的代码，使用leetcode<a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">最长上升子序列</a>的测试用例顺利通过，但时间复杂度还有待优化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLIS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxSubLen = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (nums.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] L = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            L[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; nums[j]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> tmp = L[j] + <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span> (tmp &gt; L[i]) &#123;</span><br><span class="line">                        L[i] = tmp;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (L[i] &gt; maxSubLen) &#123;</span><br><span class="line">                maxSubLen = L[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSubLen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -684,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析"><span class="nav-number">2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法流程"><span class="nav-number">3.</span> <span class="nav-text">算法流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析"><span class="nav-number">2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法流程"><span class="nav-number">3.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法实现-JAVA"><span class="nav-number">4.</span> <span class="nav-text">算法实现-JAVA</span></a></li></ol></div>
             
 
           </div>
