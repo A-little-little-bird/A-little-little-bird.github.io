@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[最长回文子序列问题]]></title>
+    <url>%2F2019%2F10%2F14%2F%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[问题描述 一个子序列被称为回文序列是指：该序列从右往左读和从左往右读的结果是一样的。例如，如下所示序列： &lt; A,C,G,T,G,T,C,A,A,A,A,T,C,G &gt;包含了许多回文子序列，如&lt; A,C,G,C,A &gt;，&lt; A,A,A,A &gt;。请设计一个动态规划的算法来计算序列x[1..n] 的最长回文子序列。该算法的时间复杂度应为O(n2)。 思路分析 此题求解回文字序列并非回文子串（子串必须是连续的）。先约定输入字符序列为S[i]，使用动态规划求解，则每阶段状态可使用dp[i] [j] 表示，含义为i号位置到j号位置的子串所包含的最长回文子序列的长度。初始状态 字符序列每个字符都各自构成长度为1的回文子序列。接下来可以开始扩大子序列长度。我们随机选定某个位置 i 开始，d[i] [i]=1，先比较 i 两边的字符，若是两边的字符刚好相等，则有dp[i-1] [i+1]=dp[i] [i]+2，否则需要从dp[i-1] [i]与dp[i] [i+1]中选取较大值作为dp[i-1] [i+1]的值。注意其中dp[i-1] [i]与dp[i] [i+1]都是指相邻位置两个字符的状态，我们在扩大子序列时没有兼顾到这种情况，所以对于这种情况也需要实现初始化，遍历一次字符序列若是相邻位置相等，则这个相邻状态的初始值为2，某则这个相邻位置的初始值为0（此处描述含糊不清，未能解释清楚深感抱歉）。以下列出状态转移方程： 算法流程]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[TensorFlow Word Embedding]]></title>
+    <url>%2F2019%2F10%2F12%2Fword_embedding%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[最长递增子序列问题]]></title>
     <url>%2F2019%2F10%2F12%2F%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[问题描述 请设计一个O(n2) 的动态规划算法来求出一个包含n 个元素的序列中的最长递增子序列。所谓递增子序列是指，从原序列中按顺序挑选出某些元素组成一个新序列，并且该新序列中的任意一个元素均大于该元素之前的所有元素。例如，输入的序列为&lt; 5, 24, 8, 17, 12, 45 &gt;，那么该序列的最长递增子序列为&lt; 5, 8, 12, 45 &gt; 或&lt; 5, 8, 17, 45 &gt;。请分析你的算法的正确性并验证其时间复杂度。 思路分析 此题可以使用动态规划的方式求解，先写出状态表示为L[i], 其含义为以i号位置为终点的最长递增子序列长度（下标默认从1开始，注意与实际代码的区别）。为了方便问题的描述，我们将输入序列标记为N[i]。 接下来开始探究此题的状态转移方程。若i为1，则L[i]=1这点无需置疑，重点在于i大于1的情况。我们依次分析，先从简单的情况开始，若是i为2，我们需要具体分析： 若是N[2] &gt; N[1]，则L[2] = L[1]+1； 反之N[2] &lt; N[1]，则L[2] = 1。 此类情况比较简单，但是足够说明问题，若是i比较大，在考虑i位置的最长递增子序列长度时，需要依次与i之前的位置进行比较，若是N[i] &gt; N[k] (k&lt;i)，则暂定P[i] = P[k]+1，依次与i之前的位置位置比较，确定满足条件的最大值作为P[i]。因此： 算法流程 算法实现-JAVA此处实现只是简单的依照上述流程所写的代码，使用leetcode最长上升子序列的测试用例顺利通过，但时间复杂度还有待优化。 123456789101112131415161718192021public int lengthOfLIS(int[] nums) &#123; int maxSubLen = 0; if (nums.length &gt; 0) &#123; int[] L = new int[nums.length]; for (int i = 0; i &lt; nums.length; i++) &#123; L[i] = 1; for (int j = i - 1; j &gt;= 0; j--) &#123; if (nums[i] &gt; nums[j]) &#123; int tmp = L[j] + 1; if (tmp &gt; L[i]) &#123; L[i] = tmp; &#125; &#125; &#125; if (L[i] &gt; maxSubLen) &#123; maxSubLen = L[i]; &#125; &#125; &#125; return maxSubLen;&#125;]]></content>
@@ -67,17 +83,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo文档]]></title>
-    <url>%2F2019%2F05%2F26%2Fhexo%2F</url>
-    <content type="text"><![CDATA[欢迎使用 Hexo! 初次使用Hexo发布文章，可以查看 帮助文档 获取更多信息. 如果你在使用Hexo过程中遇到问题, 你能够在 疑难解答找到解决方式 或者通过 GitHub直接询问我. 快速开始创建新的发布1$ hexo new post "My New Post" 更多内容: Writing 启动服务器1$ hexo server 更多内容: Server 生成静态html文件1$ hexo generate 更多内容: Generating 发布到远程仓库1$ hexo deploy 更多内容: Deployment]]></content>
-      <categories>
-        <category>使用文档</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Git文档]]></title>
     <url>%2F2019%2F05%2F26%2FgitDoc%2F</url>
     <content type="text"><![CDATA[基本概念首先，来理解一下Git下工作区、暂存区和版本库概念 工作区：就是能够在电脑里能看到的目录。 暂存区：英文名叫stage或者index。一般存放在”git目录”下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。 版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是Git的版本库。 下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系]]></content>
@@ -86,6 +91,17 @@
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo文档]]></title>
+    <url>%2F2019%2F05%2F26%2Fhexo%2F</url>
+    <content type="text"><![CDATA[欢迎使用 Hexo! 初次使用Hexo发布文章，可以查看 帮助文档 获取更多信息. 如果你在使用Hexo过程中遇到问题, 你能够在 疑难解答找到解决方式 或者通过 GitHub直接询问我. 快速开始创建新的发布1$ hexo new post "My New Post" 更多内容: Writing 启动服务器1$ hexo server 更多内容: Server 生成静态html文件1$ hexo generate 更多内容: Generating 发布到远程仓库1$ hexo deploy 更多内容: Deployment]]></content>
+      <categories>
+        <category>使用文档</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
