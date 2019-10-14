@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/10/14/最长回文子序列问题/转移方程">
 <meta property="og:image" content="http://yoursite.com/2019/10/14/最长回文子序列问题/算法流程">
-<meta property="og:updated_time" content="2019-10-14T01:47:51.314Z">
+<meta property="og:updated_time" content="2019-10-14T02:06:26.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最长回文子序列问题">
 <meta name="twitter:description" content="问题描述 一个子序列被称为回文序列是指：该序列从右往左读和从左往右读的结果是一样的。例如，如下所示序列：                                                &amp;lt; A,C,G,T,G,T,C,A,A,A,A,T,C,G &amp;gt;包含了许多回文子序列，如&amp;lt; A,C,G,C,A &amp;gt;，&amp;lt; A,A,A,A &amp;gt;。请设计一个动态规划的算法来">
@@ -420,7 +420,7 @@
                 
               
 
-              <time title="创建时间：2019-10-14 08:24:00 / 修改时间：09:47:51" itemprop="dateCreated datePublished" datetime="2019-10-14T08:24:00+08:00">2019-10-14</time>
+              <time title="创建时间：2019-10-14 08:24:00 / 修改时间：10:06:26" itemprop="dateCreated datePublished" datetime="2019-10-14T08:24:00+08:00">2019-10-14</time>
             
 
             
@@ -486,6 +486,11 @@
 </blockquote>
 <h4 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h4><blockquote>
 <p><img src="./算法流程" alt="算法流程"></p>
+</blockquote>
+<h4 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h4><blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestPalindromeSubseq</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">&gt;     <span class="keyword">if</span> (s != <span class="keyword">null</span>) &#123;</span><br><span class="line">&gt;         <span class="keyword">int</span> len = s.length();</span><br><span class="line">&gt;         <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[len][len];</span><br><span class="line">&gt;         <span class="keyword">char</span>[] sc = s.toCharArray();</span><br><span class="line">&gt;         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">&gt;             dp[i][i] = <span class="number">1</span>;</span><br><span class="line">&gt;         &#125;</span><br><span class="line">&gt;         <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= len; l++) &#123;</span><br><span class="line">&gt;             <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= len - l; i++) &#123;</span><br><span class="line">&gt;                 <span class="keyword">int</span> j = i + l - <span class="number">1</span>;</span><br><span class="line">&gt;                 dp[i][j] = Math.max(dp[i][j - <span class="number">1</span>], dp[i + <span class="number">1</span>][j]);</span><br><span class="line">&gt;                 <span class="keyword">if</span> (sc[i] == sc[j]) &#123;</span><br><span class="line">&gt;                     dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">2</span>;</span><br><span class="line">&gt;                 &#125;</span><br><span class="line">&gt;             &#125;</span><br><span class="line">&gt;         &#125;</span><br><span class="line">&gt;         <span class="keyword">return</span> dp[<span class="number">0</span>][len - <span class="number">1</span>];</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
 </blockquote>
 
       
@@ -696,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析"><span class="nav-number">2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法流程"><span class="nav-number">3.</span> <span class="nav-text">算法流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析"><span class="nav-number">2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法流程"><span class="nav-number">3.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法实现"><span class="nav-number">4.</span> <span class="nav-text">算法实现</span></a></li></ol></div>
             
 
           </div>
