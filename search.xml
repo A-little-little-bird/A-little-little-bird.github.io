@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[py2neo使用文档]]></title>
     <url>%2F2019%2F10%2F15%2Fpy2neo%2F</url>
-    <content type="text"><![CDATA[py2ne操作neo4j数据库 安装py2neo可访问py2neo官网查看详细使用教程。 1pip install py2neo #请确保本地已安装好pip 以下操作所使用的py2neo版本为 3.1.2 连接neo4j数据库12345678from py2neo import Graph# 使用'地址'、'用户名'、'密码' 创建Graph对象，之后的操作都将已Graph对象为基础graph = Graph( "http://localhost:7474", username="&lt;用户名&gt;", password="&lt;密码&gt;") 新建neo4j节点123456789from py2neo import Node# 新建节点对象a = Node('a', name='a')b = Node('b', name='b')# 使用Graph对象创建新节点graph.create(a)graph.create(b) 连接neo4j节点1234567from py2neo import Relationship# 新建关系对象re = Relationship(a, '关系名', b)# 使用Graph对象创建新关系graph.merge(re) 更新neo4j节点12]]></content>
+    <content type="text"><![CDATA[py2ne操作neo4j数据库安装py2neo可访问py2neo官网查看详细使用教程。 1pip install py2neo #请确保本地已安装好pip 以下操作所使用的py2neo版本为 3.1.2 连接neo4j数据库12345678from py2neo import Graph# 使用'地址'、'用户名'、'密码' 创建Graph对象，之后的操作都将已Graph对象为基础graph = Graph( "http://localhost:7474", username="&lt;用户名&gt;", password="&lt;密码&gt;") 新建neo4j节点123456789from py2neo import Node# 新建节点对象a = Node('a', name='a')b = Node('b', name='b')# 使用Graph对象创建新节点graph.create(a)graph.create(b) 连接neo4j节点1234567from py2neo import Relationship# 新建关系对象re = Relationship(a, '关系名', b)# 使用Graph对象创建新关系graph.merge(re) 查询neo4j节点1234567891011from py2neo import NodeSelector# 使用NodeSelector对象获取节点信息selector = NodeSelector(graph)selector.selector.select('a', name='a')# 使用graph.find()方法查询graph.find('a')# 执行neoSql查询graph.run('match (a:a) where a.name = "a" return a')]]></content>
       <categories>
         <category>使用文档</category>
       </categories>
