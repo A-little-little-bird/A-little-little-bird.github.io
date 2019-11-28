@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pandas操作mysql]]></title>
+    <url>%2F2019%2F11%2F28%2Fpandas%E6%93%8D%E4%BD%9Cmysql%2F</url>
+    <content type="text"><![CDATA[相关包安装123pip install sqlalchemypip install pandaspip install pymysql 连接mysql数据库12345from sqlalchemy import create_engine# 创建数据库连接，注意使用pymysql，亲测有效，网上使用mysqldb会报错，直接避坑。# engine = create_engine('mysql+pymysql://&lt;user&gt;:&lt;pwd&gt;@&lt;ip&gt;:&lt;port&gt;/&lt;db&gt;?charset=utf8')engine = create_engine('mysql+pymysql://root:123456@localhost:3306/test?charset=utf8') 查询数据1234import pandas as pdsql = "select * from organisation"df = pd.read_sql_query(sql, con=engine) 删除数据123456789import pandas as pdsql = "delete from organisation where orgId = 3168"# 删除没有返回数据，会抛出异常 (不推荐使用pandas删除数据)try: pd.read_sql(sql, con=engine)except: pass 修改数据12345678import pandas as pdsql = "update organisation set orgName='天地银行' where orgId=1"# 修改没有返回数据，会抛出异常 (不推荐使用pandas修改数据)try: pd.read_sql(sql, con=engine)except: pass 新增数据注意to_sql函数的if_exists参数的使用，其判断的是表是否存在，各参数值含义如下 replace表示若表存在将表中数据全部删除，插入新数据 append表示若表存在，在表中追加新数据 fail表示若表存在，则数据不插入 新增数据时，一般将使用if_exists=”append” 1234import pandas as pd# 借用一下上面的查询结果df.to_sql("organisation", con=engine, if_exists="append", index=False)]]></content>
+      <categories>
+        <category>使用文档</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[seq2seq模型]]></title>
+    <url>%2F2019%2F11%2F04%2Fseq2seq%E6%A8%A1%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[seq2seq A Sequence to Sequence network, or seq2seq network, or Encoder Decoder network, is a model consisting of two RNNs called the encoder and decoder. The encoder reads an input sequence and outputs a single vector, and the decoder reads that vector to produce an output sequence. The Encoder The encoder of a seq2seq network is a RNN that outputs some value for every word from the input sentence. For every input word the encoder outputs a vector and a hidden state, and uses the hidden state for the next input word. The Decoder The decoder is another RNN that takes the encoder output vector(s) and outputs a sequence of words to create the translation. Attention Decoder If only the context vector is passed betweeen the encoder and decoder, that single vector carries the burden of encoding the entire sentence. Attention allows the decoder network to “focus” on a different part of the encoder’s outputs for every step of the decoder’s own outputs. First we calculate a set of attention weights. These will be multiplied by the encoder output vectors to create a weighted combination. The result (called attn_applied in the code) should contain information about that specific part of the input sequence, and thus help the decoder choose the right output words.]]></content>
+      <categories>
+        <category>学习文档</category>
+      </categories>
+      <tags>
+        <tag>CNN</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[条件随机场]]></title>
     <url>%2F2019%2F10%2F17%2F%E6%9D%A1%E4%BB%B6%E9%9A%8F%E6%9C%BA%E5%9C%BA%2F</url>
     <content type="text"><![CDATA[基础介绍 条件随机场模型（conditional random field，CRF）是 Lafferty 于2001年，在最大熵模型和隐马尔科夫模型的基础上，提出的一种判别式概率无向图学习模型，是一种用于标注 和 切分 有序数据的条件概率模型。]]></content>
