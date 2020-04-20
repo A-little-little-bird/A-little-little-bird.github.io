@@ -122,17 +122,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo文档]]></title>
-    <url>%2F2019%2F05%2F26%2Fhexo%2F</url>
-    <content type="text"><![CDATA[欢迎使用 Hexo! 初次使用Hexo发布文章，可以查看 帮助文档 获取更多信息. 如果你在使用Hexo过程中遇到问题, 你能够在 疑难解答找到解决方式 或者通过 GitHub直接询问我. 快速开始创建新的发布1$ hexo new post "My New Post" 更多内容: Writing 启动服务器1$ hexo server 更多内容: Server 生成静态html文件1$ hexo generate 更多内容: Generating 发布到远程仓库1$ hexo deploy 更多内容: Deployment]]></content>
-      <categories>
-        <category>使用文档</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Git文档]]></title>
     <url>%2F2019%2F05%2F26%2FgitDoc%2F</url>
     <content type="text"><![CDATA[基本概念首先，来理解一下Git下工作区、暂存区和版本库概念 工作区：就是能够在电脑里能看到的目录。 暂存区：英文名叫stage或者index。一般存放在”git目录”下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。 版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是Git的版本库。 下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系]]></content>
@@ -141,6 +130,17 @@
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo文档]]></title>
+    <url>%2F2019%2F05%2F26%2Fhexo%2F</url>
+    <content type="text"><![CDATA[欢迎使用 Hexo! 初次使用Hexo发布文章，可以查看 帮助文档 获取更多信息. 如果你在使用Hexo过程中遇到问题, 你能够在 疑难解答找到解决方式 或者通过 GitHub直接询问我. 快速开始创建新的发布1$ hexo new post "My New Post" 更多内容: Writing 启动服务器1$ hexo server 更多内容: Server 生成静态html文件1$ hexo generate 更多内容: Generating 发布到远程仓库1$ hexo deploy 更多内容: Deployment]]></content>
+      <categories>
+        <category>使用文档</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
