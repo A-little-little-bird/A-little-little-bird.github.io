@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="A little little bird">
 <meta property="og:description" content="相关包安装123pip install sqlalchemypip install pandaspip install pymysql 连接mysql数据库12345from sqlalchemy import create_engine# 创建数据库连接，注意使用pymysql，亲测有效，网上使用mysqldb会报错，直接避坑。# engine = create_engine(&apos;mysql+py">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-28T02:05:40.793Z">
+<meta property="og:updated_time" content="2019-11-28T07:02:36.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pandas操作mysql">
 <meta name="twitter:description" content="相关包安装123pip install sqlalchemypip install pandaspip install pymysql 连接mysql数据库12345from sqlalchemy import create_engine# 创建数据库连接，注意使用pymysql，亲测有效，网上使用mysqldb会报错，直接避坑。# engine = create_engine(&apos;mysql+py">
@@ -417,7 +417,7 @@
                 
               
 
-              <time title="创建时间：2019-11-28 08:34:40 / 修改时间：10:05:40" itemprop="dateCreated datePublished" datetime="2019-11-28T08:34:40+08:00">2019-11-28</time>
+              <time title="创建时间：2019-11-28 08:34:40 / 修改时间：15:02:36" itemprop="dateCreated datePublished" datetime="2019-11-28T08:34:40+08:00">2019-11-28</time>
             
 
             
@@ -478,7 +478,7 @@
 <h4 id="连接mysql数据库"><a href="#连接mysql数据库" class="headerlink" title="连接mysql数据库"></a>连接mysql数据库</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库连接，注意使用pymysql，亲测有效，网上使用mysqldb会报错，直接避坑。</span></span><br><span class="line"><span class="comment"># engine = create_engine('mysql+pymysql://&lt;user&gt;:&lt;pwd&gt;@&lt;ip&gt;:&lt;port&gt;/&lt;db&gt;?charset=utf8')</span></span><br><span class="line">engine = create_engine(<span class="string">'mysql+pymysql://root:123456@localhost:3306/test?charset=utf8'</span>)</span><br></pre></td></tr></table></figure>
 <h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">sql = <span class="string">"select * from organisation"</span></span><br><span class="line">df = pd.read_sql_query(sql, con=engine)</span><br></pre></td></tr></table></figure>
 <h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">sql = <span class="string">"delete from organisation where orgId = 3168"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除没有返回数据，会抛出异常  (不推荐使用pandas删除数据)</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    pd.read_sql(sql, con=engine)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">sql = <span class="string">"update organisation set orgName='天地银行' where orgId=1"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改没有返回数据，会抛出异常  (不推荐使用pandas修改数据)</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    pd.read_sql(sql, con=engine)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">sql = <span class="string">"update organisation set orgName='天地银行' where orgId=1"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改没有返回数据，会抛出异常  (不推荐使用pandas修改数据)</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    pd.read_sql(sql, con=engine)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <h4 id="新增数据"><a href="#新增数据" class="headerlink" title="新增数据"></a>新增数据</h4><p>注意to_sql函数的if_exists参数的使用，其判断的是表是否存在，各参数值含义如下</p>
 <ol>
 <li>replace表示若表存在将表中数据全部删除，插入新数据</li>
@@ -502,6 +502,30 @@
     
       
     
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="A-little-little-bird 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -704,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关包安装"><span class="nav-number">1.</span> <span class="nav-text">相关包安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接mysql数据库"><span class="nav-number">2.</span> <span class="nav-text">连接mysql数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据"><span class="nav-number">3.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据"><span class="nav-number">4.</span> <span class="nav-text">删除数据</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据"><span class="nav-number"></span> <span class="nav-text">修改数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新增数据"><span class="nav-number">1.</span> <span class="nav-text">新增数据</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关包安装"><span class="nav-number">1.</span> <span class="nav-text">相关包安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接mysql数据库"><span class="nav-number">2.</span> <span class="nav-text">连接mysql数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据"><span class="nav-number">3.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据"><span class="nav-number">4.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改数据"><span class="nav-number">5.</span> <span class="nav-text">修改数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新增数据"><span class="nav-number">6.</span> <span class="nav-text">新增数据</span></a></li></ol></div>
             
 
           </div>
@@ -725,7 +749,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
